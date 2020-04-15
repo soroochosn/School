@@ -1,11 +1,17 @@
-public class Student extends Person{
-    Section[] sections = new Section[10];
-    int grade=0;
-    int sectionCount=0;
+import java.util.Arrays;
 
-    public Student(String name, int grade) {
+public class Student extends Person{
+    private Section[] sections = new Section[10];
+    private int grade;
+    private int sectionCount;
+
+    public Student(String name, int grade){
         super(name);
         this.grade = grade;
+    }
+
+    public Section[] getSection() {
+        return sections;
     }
 
     public int getGrade() {
@@ -16,11 +22,23 @@ public class Student extends Person{
         this.grade = grade;
     }
 
-    public Section[] getSections() {
-        return sections;
-    }
-    public void addSections(Section s){
-        sections[sectionCount]=s;
+    public void addSection(Section s){
+        sections[sectionCount] = s;
         sectionCount++;
+    }
+
+
+
+    @Override
+    public String toString() {
+        String o = "";
+        for(int i = 0; i<sectionCount;i++) {
+            o += sections[i].getName() + " taught by " + sections[i].getTeacher().getName();
+            if(i < sectionCount-1) {
+                o += ", ";
+            }
+        }
+        return name + " is in " + grade + " grade and is enrolled in the following sections: " + o;
+
     }
 }
