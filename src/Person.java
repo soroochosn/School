@@ -1,26 +1,27 @@
 public class Person {
-    String name;
-    int id = 0;
-    static int nextid;
+    protected String name;
+    private int id;
+    static int nextID = 0;
+
+    public Person(String name){
+        this.name = name;
+        this.id = nextID;
+        nextID = nextID++;
+    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getId() {
         return id;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
-
-    public static int getNextid() {
-        return nextid;
-    }
-    
 }
