@@ -1,12 +1,19 @@
-public class Teacher extends Person{
-    Section[] sections = new Section[10];
-    String subject;
-    int sectionCount=0;
+import java.util.Arrays;
 
-    public Teacher(String name, int grade) {
+public class Teacher extends Person{
+    private Section[] sections = new Section[10];
+    private String subject;
+    private int sectionCount;
+
+    public Teacher(String name, String subject){
         super(name);
         this.subject = subject;
     }
+
+    public Section[] getSection() {
+        return sections;
+    }
+
     public String getSubject() {
         return subject;
     }
@@ -15,11 +22,18 @@ public class Teacher extends Person{
         this.subject = subject;
     }
 
-    public Section[] getSections() {
-        return sections;
-    }
     public void addSection(Section s){
-        sections[sectionCount]=s;
+        sections[sectionCount] = s;
         sectionCount++;
+    }
+
+    @Override
+    public String toString() {
+        String o = "";
+        for(int i = 0; i<sectionCount;i++) {
+            o += sections[i].getName() + " (" + sections[i].getCurrentSize() + ")";
+        }
+
+        return name + " teaches the following sections: " + o;
     }
 }
