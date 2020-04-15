@@ -1,10 +1,12 @@
+import java.util.Arrays;
+
 public class Section {
     private Teacher teacher;
-    Student[] students = new Student[50];
-    String name;
-    int currentSize = 0;
+    private Student[] students = new Student[50];
+    private String name;
+    private int currentSize;
 
-    public Section(String name) {
+    public Section(String name){
         this.name = name;
     }
 
@@ -12,28 +14,42 @@ public class Section {
         return teacher;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-
-    public Student[] getStudents() {
+    public Student[] getStudent() {
         return students;
     }
 
     public String getName() {
         return name;
     }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void addStudent(Student s) {
-        students[currentSize] = s;
-        currentSize++;
-
+    public int getCurrentSize() {
+        return currentSize;
     }
 
-    @Override
+    public void addStudent(Student s){
+        students[currentSize] = s;
+        currentSize++;
+    }
+
+
+
+    public String toString() {
+        String o = "";
+        for(int i = 0; i<currentSize;i++) {
+            o += students[i].name + ", ";
+        }
+        return this.name + " is taught by " + this.teacher.name +  " and has " + currentSize + " students: " + o;
+
+    }
+}
     public String toString() {
         return super.toString();
     }
