@@ -1,5 +1,4 @@
-public class Runner {
-  class Runner {
+Public class Runner {
     public static void main(String[] args){
       School b = new School("Berkeley High");
       Section c = new Section("Math");
@@ -64,7 +63,12 @@ public class Runner {
         System.out.println(Matthew.toString());
         System.out.println(Andrew.toString());
         System.out.println(James.toString());
-     }
 
-}
+
+
+
+
+
+    }
+
 }
